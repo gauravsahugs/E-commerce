@@ -11,6 +11,8 @@ import {
   createBrowserRouter,
   ScrollRestoration,
 } from "react-router-dom";
+import Login from "./pages/Login";
+import About from "./pages/About";
 
 function App() {
   const Layout = () => {
@@ -41,6 +43,14 @@ function App() {
         {
           path: "/cart",
           element: <Cart />,
+        },
+        {
+          path: "/login",
+          element: <Login />,
+        },
+        {
+          path: "/about",
+          element: <About />,
         },
       ],
     },

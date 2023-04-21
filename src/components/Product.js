@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { MdOutlineStar } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/bazaarSlice";
+import { ToastContainer, toast } from "react-toastify";
 
 function Product() {
+  const dispatch = useDispatch();
   const [details, setDetails] = useState();
+  const [baseQty, setBaseQty] = useState(1);
   const Location = useLocation();
   useEffect(() => {
     setDetails(Location.state.item);
@@ -52,13 +57,15 @@ function Product() {
               <p className="text-sm">Quantity</p>
               <div className="flex items-center gap-4 text-sm font-semibold">
                 <button
+                  onClick={() => setBaseQty(baseQty === 1 ? 1 : baseQty - 1)}
                   className="border h-5 font-norm
                  text-lg flex items-center justify-center px-2 hover:text-white cursor-pointer duration-300 active:bg-black"
                 >
                   -
                 </button>
-                <button>{1}</button>
+                <button>{baseQty}</button>
                 <button
+                  onClick={() => setBaseQty(baseQty + 1)}
                   className="border h-5 font-norm
                  text-lg flex items-center justify-center px-2 hover:text-white cursor-pointer duration-300 active:bg-black"
                 >
@@ -66,7 +73,21 @@ function Product() {
                 </button>
               </div>
             </div>
-            <button className="bg-black text-white py-3 px-6 active:bg-gray-800">
+            <button
+              onClick={() =>
+                dispatch(
+                  addToCart({
+                    _id: details._id,
+                    title: details.title,
+                    image: details.image,
+                    price: details.price,
+                    quantity: baseQty,
+                    description: details.description,
+                  })
+                ) & toast.success(`${details.title} is added`)
+              }
+              className="bg-black text-white py-3 px-6 active:bg-gray-800"
+            >
               add to cart
             </button>
           </div>
@@ -76,6 +97,18 @@ function Product() {
           </p>
         </div>
       </div>
+      <ToastContainer
+        position="top-left"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 }
