@@ -7,7 +7,7 @@ function Product() {
   const Location = useLocation();
   useEffect(() => {
     setDetails(Location.state.item);
-  }, []);
+  }, [Location.state.item]);
   return (
     <div>
       <div className="max-w-screen-xl mx-auto my-10 flex gap-10">
