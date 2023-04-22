@@ -18,7 +18,9 @@ function CardItem() {
   return (
     <div className="w-2/3 pr-10">
       <div className="w-full">
-        <h2 className="font-titleFont text-2xl">Shopping Cart</h2>
+        <h2 className="font-titleFont text-2xl font-semibold">
+          Shopping Cart Items
+        </h2>
       </div>
       <div>
         {productData.map((item) => (
@@ -36,11 +38,11 @@ function CardItem() {
               />
               <img className="w-32 h-32 object-cover" src={item.image} alt="" />
             </div>
-            <h2 className="w-52">{item.title}</h2>
-            <p className="w-10">${item.price}</p>
+            <h2 className="w-52 font-bodyFont font-semibold">{item.title}</h2>
+            <p className="w-10 font-bold font-titleFont">${item.price}</p>
             <div className="flex gap-4">
               <div className="w-52 flex items-center justify-between text-gray-500 gap-4 border p-3">
-                <p className="text-sm">Quantity</p>
+                <p className="text-sm font-bodyFont font-semibold">Quantity</p>
                 <div className="flex items-center gap-4 text-sm font-semibold">
                   <button
                     onClick={() =>
@@ -82,19 +84,23 @@ function CardItem() {
                 </div>
               </div>
             </div>
-            <h2>${item.quantity * item.price}</h2>
+            <h2 className="w-10 font-bold font-titleFont">
+              ${item.quantity * item.price}
+            </h2>
           </div>
         ))}
       </div>
+
       <button
         onClick={() =>
           dispatch(resetCart()) & toast.error("Your Cart is Empty")
         }
-        className="bg-red-500 text-white mt-8 ml-7 py-1 px-6 hover:bg-red-800 duration-300
+        className="bg-red-500 font-semibold text-white mt-8 ml-7 py-1 px-6 hover:bg-red-800 duration-300
           "
       >
         Reset Cart
       </button>
+
       <Link to="/">
         <button className="mt-8 ml-7 flex items-center gap-1 text-gray-400 hover:text-black duration-300">
           <span>

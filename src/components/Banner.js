@@ -26,7 +26,7 @@ function Banner() {
       >
         <div
           style={{ transform: `translateX(-${currentSlide * 100}vw)` }}
-          className="w-[400vw] h-[500px] flex transition-transform duration-1000"
+          className="w-[400vw] h-[400px] flex transition-transform duration-1000"
         >
           {data.map((item) => (
             <img

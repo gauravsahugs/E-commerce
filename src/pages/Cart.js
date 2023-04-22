@@ -36,13 +36,13 @@ function Cart() {
   };
 
   return (
-    <div>
+    <>
       <img
         className="w-full h-60 object-cover"
-        src="https://static.vecteezy.com/system/resources/thumbnails/002/006/774/small/paper-art-shopping-online-on-smartphone-and-new-buy-sale-promotion-backgroud-for-banner-market-ecommerce-free-vector.jpg"
+        src="https://t3.ftcdn.net/jpg/04/65/46/52/360_F_465465254_1pN9MGrA831idD6zIBL7q8rnZZpUCQTy.jpg"
         alt=""
       />
-      <div className="max-w-screen-xl mx-auto py-20 flex">
+      <div className="max-w-screen-xl mx-40 py-20 flex">
         <CardItem />
         <div className="w-1/3 bg-[#fafafa] py-6 px-4">
           <div className="flex flex-col gap-6 border-b-[1px] border-b-gray-400 pb-6">
@@ -59,12 +59,12 @@ function Cart() {
               <span className="">Shipping to your Heavenly address</span>
             </p>
           </div>
-          <p className="font-titleFont font-semibold flex justify-between mt-6 ">
+          <p className="font-titleFont font-semibold text-xl flex justify-between mt-6 ">
             Total <span className="text-xl font-bold">${totalAmt}</span>
           </p>
           <button
             onClick={handleCheckout}
-            className="text-base bg-black text-white w-full py-3 mt-6 hover:bg-gray-800 duration-300"
+            className="text-base font-bold bg-black text-white w-full py-3 mt-6 hover:bg-gray-800 duration-300"
           >
             Proceed to checkout
           </button>
@@ -84,7 +84,7 @@ function Cart() {
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

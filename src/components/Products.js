@@ -10,11 +10,10 @@ function Products({ products }) {
         </h1>
         <span className="w-20 h-[3px] bg-black"></span>
         <p className="max-w-[700px] text-gray-600 text-center">
-          There are many variations of passages of Lorem Ipsum available, but
-          the majority have suffered alteration in some form, by injected
-          humour, or randomised words which don't look even slightly believable.
-          If you are going to use a passage of Lorem Ipsum, you need to be sure
-          there isn't anything embarrassing hidden in the middle of text.{" "}
+          MiniBazaar has been recognised as one of the most desirable E-commerce
+          in India, citing Products qualtiy, Customer satisfaction, Croduct
+          diversity , Skills training and opportunities for growth as key
+          differentiators.
         </p>
       </div>
       <div

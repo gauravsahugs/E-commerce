@@ -4,6 +4,7 @@ import { MdOutlineStar } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/bazaarSlice";
 import { ToastContainer, toast } from "react-toastify";
+import { Container } from "@mui/material";
 
 function Product() {
   const dispatch = useDispatch();
@@ -14,8 +15,8 @@ function Product() {
     setDetails(Location.state.item);
   }, [Location.state.item]);
   return (
-    <div>
-      <div className="max-w-screen-xl mx-auto my-10 flex gap-10">
+    <Container>
+      <div className="max-w-screen-xl mx-10 my-10 flex gap-10">
         <div className="w-2/5 relative">
           <img
             className="w-full h-[550px] object-cover"
@@ -34,10 +35,10 @@ function Product() {
           <div>
             <h2 className="text-4xl font-semibold">{details?.title}</h2>
             <div>
-              <p className="line-through font-base text-gray-500">
+              <p className="line-through font-semibold text-gray-500">
                 ${details?.oldPrice}
               </p>
-              <p className="text-2xl font-medium text-gray-900">
+              <p className="text-2xl font-bold text-gray-900">
                 ${details?.price}
               </p>
             </div>
@@ -54,7 +55,7 @@ function Product() {
           </p>
           <div className="flex gap-4">
             <div className="w-52 flex items-center justify-between text-gray-500 gap-4 border p-3">
-              <p className="text-sm">Quantity</p>
+              <p className="text-sm font-semibold">Quantity</p>
               <div className="flex items-center gap-4 text-sm font-semibold">
                 <button
                   onClick={() => setBaseQty(baseQty === 1 ? 1 : baseQty - 1)}
@@ -86,14 +87,14 @@ function Product() {
                   })
                 ) & toast.success(`${details.title} is added`)
               }
-              className="bg-black text-white py-3 px-6 active:bg-gray-800"
+              className="bg-black font-semibold text-white py-3 px-6 active:bg-gray-800"
             >
-              add to cart
+              Add to cart
             </button>
           </div>
-          <p className="text-base text-gray-500">
-            Category:{" "}
-            <span className="font-medium capitalize">{details?.category}</span>
+          <p className="text-base font-semibold text-gray-500">
+            Category :
+            <span className="font-bold capitalize">{details?.category}</span>
           </p>
         </div>
       </div>
@@ -109,7 +110,7 @@ function Product() {
         pauseOnHover
         theme="dark"
       />
-    </div>
+    </Container>
   );
 }
 
